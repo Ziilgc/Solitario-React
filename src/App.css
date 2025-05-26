@@ -1,0 +1,94 @@
+.solitario {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.game-board {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.top-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.stock-waste {
+  display: flex;
+  gap: 1rem;
+}
+
+.foundations {
+  display: flex;
+  gap: 1rem;
+}
+
+.tableau {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.card {
+  width: 100px;
+  height: 140px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  transition: transform 0.2s;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card.back {
+  background: linear-gradient(45deg, #1a1a1a, #4a4a4a);
+}
+
+.foundation, .stock, .waste {
+  width: 100px;
+  height: 140px;
+  border: 2px dashed #666;
+  border-radius: 8px;
+}
+
+.tableau-pile {
+  position: relative;
+  min-height: 140px;
+  width: 100px;
+}
+
+.tableau-card {
+  position: absolute;
+  left: 0;
+  transition: top 0.3s ease;
+}
+
+.suit.♥, .suit.♦ {
+  color: red;
+}
+
+.suit.♠, .suit.♣ {
+  color: black;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
