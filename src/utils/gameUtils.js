@@ -1,4 +1,3 @@
-// Crear el mazo de cartas inicial
 export const createDeck = () => {
   const suits = ['♠', '♥', '♦', '♣'];
   const numbers = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
@@ -21,7 +20,8 @@ export const createDeck = () => {
 // Barajar el mazo
 export const shuffle = (array) => {
   const newArray = [...array];
-  for (let i = newArray.length - 1; i > 0; i--) {
+  for (let i = newArray.length - 1; i > 0; i--)//esta línea es para ir "descartando cartas" del mazo
+    {
     const j = Math.floor(Math.random() * (i + 1));
     [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
   }
@@ -57,3 +57,7 @@ export const canPlaceOnFoundation = (cardToPlace, foundationPile) => {
     numbers.indexOf(cardToPlace.number) === numbers.indexOf(topCard.number) + 1
   );
 };
+
+//en este archivo nos encargamos de crear el mazo de cartas, barajarlo y verificar si una carta puede ser colocada sobre otra en el tableau o en la fundación.
+
+ 
