@@ -1,18 +1,18 @@
+import { SUITS, NUMBERS, RED_SUITS, NUMBERS_ARRAY } from '../constants/cardConstants';
+
 export const createDeck = () => {
-  const suits = ['♠', '♥', '♦', '♣'];
-  const numbers = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
   const deck = [];
 
-  for (const suit of suits) {
-    for (const number of numbers) {
+  Object.values(SUITS).forEach(suit => {
+    Object.values(NUMBERS).forEach(number => {
       deck.push({
         suit,
         number,
         isVisible: false,
         id: `${suit}-${number}`
       });
-    }
-  }
+    });
+  });
 
   return shuffle(deck);
 };
@@ -30,34 +30,29 @@ export const shuffle = (array) => {
 
 // Verificar si una carta puede ser colocada sobre otra en el tableau
 export const canPlaceOnTableau = (cardToPlace, targetCard) => {
-  if (!targetCard) return cardToPlace.number === 'K';
-  
-  const numbers = ['K', 'Q', 'J', '10', '9', '8', '7', '6', '5', '4', '3', '2', 'A'];
-  const redSuits = ['♥', '♦'];
+  if (!targetCard) return cardToPlace.number === NUMBERS.KING;
   
   const isAlternatingColor = 
-    (redSuits.includes(cardToPlace.suit) && !redSuits.includes(targetCard.suit)) ||
-    (!redSuits.includes(cardToPlace.suit) && redSuits.includes(targetCard.suit));
+    (RED_SUITS.includes(cardToPlace.suit) && !RED_SUITS.includes(targetCard.suit)) ||
+    (!RED_SUITS.includes(cardToPlace.suit) && RED_SUITS.includes(targetCard.suit));
     
   const isDescendingValue = 
-    numbers.indexOf(cardToPlace.number) === numbers.indexOf(targetCard.number) + 1;
+    NUMBERS_ARRAY.indexOf(cardToPlace.number) === NUMBERS_ARRAY.indexOf(targetCard.number) + 1;
     
   return isAlternatingColor && isDescendingValue;
 };
 
 // Verificar si una carta puede ser colocada en la fundación
 export const canPlaceOnFoundation = (cardToPlace, foundationPile) => {
-  if (foundationPile.length === 0) return cardToPlace.number === 'A';
+  if (foundationPile.length === 0) return cardToPlace.number === NUMBERS.ACE;
   
   const topCard = foundationPile[foundationPile.length - 1];
-  const numbers = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
   
   return (
     cardToPlace.suit === topCard.suit &&
-    numbers.indexOf(cardToPlace.number) === numbers.indexOf(topCard.number) + 1
+    NUMBERS_ARRAY.indexOf(cardToPlace.number) === NUMBERS_ARRAY.indexOf(topCard.number) + 1
   );
 };
 
 //en este archivo nos encargamos de crear el mazo de cartas, barajarlo y verificar si una carta puede ser colocada sobre otra en el tableau o en la fundación.
 
- 

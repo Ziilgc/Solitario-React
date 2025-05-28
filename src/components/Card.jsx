@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { SUITS_ARRAY, NUMBERS_ARRAY } from '../constants/cardConstants'
 
 const Card = ({ suit, number, isVisible = true, onClick }) => {
   if (!isVisible) {
@@ -17,8 +18,8 @@ const Card = ({ suit, number, isVisible = true, onClick }) => {
 }
 
 Card.propTypes = {
-  suit: PropTypes.oneOf(['♠', '♥', '♦', '♣']),
-  number: PropTypes.oneOf(['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']),
+  suit: PropTypes.oneOf(SUITS_ARRAY),
+  number: PropTypes.oneOf(NUMBERS_ARRAY),
   isVisible: PropTypes.bool,
   onClick: PropTypes.func
 }

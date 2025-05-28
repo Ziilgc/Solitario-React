@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { NUMBERS } from "./constants/cardConstants";
 import "./App.css";
 import Card from "./components/Card";
 import TableauPile from "./components/TableauPile";
-import {
-  createDeck,
-  canPlaceOnTableau,
-  canPlaceOnFoundation,
-} from "./utils/gameUtils";
+import { createDeck, canPlaceOnTableau, canPlaceOnFoundation } from "./utils/gameUtils";
 
 function App() {
   const [deck, setDeck] = useState([]);
@@ -84,7 +81,7 @@ function App() {
     const fromLoc = findCardLocation(fromCard);
     const toLoc = findCardLocation(toCard);
     if (!fromLoc || !toLoc) return;
-    
+
     if (toLoc.type === "tableau") {
       const targetPile = tableau[toLoc.pile];
       if (canPlaceOnTableau(fromCard, targetPile[targetPile.length - 1])) {
@@ -114,9 +111,39 @@ function App() {
           setTableau(newTableau);
         }
       }
+    } else if (toLoc.type === "foundation") {
+      const foundationIndex = toLoc.pile;
+      const foundation = foundations[foundationIndex];
+      if (canPlaceOnFoundation(fromCard, foundation[foundation.length - 1])) {
+        // Lógica para mover a la fundación
+        let movingCards = [];
+        if (fromLoc.type === "tableau") {
+          movingCards = tableau[fromLoc.pile].slice(fromLoc.index);
+          const newTableau = tableau.map((pile, i) =>
+            i === fromLoc.pile ? pile.slice(0, fromLoc.index) : pile
+          );
+          setTableau(newTableau);
+        } else if (fromLoc.type === "waste") {
+          movingCards = [fromCard];
+          const newWaste = waste.slice(0, fromLoc.index);
+          setWaste(newWaste);
+        }
+        const newFoundations = [...foundations];
+        newFoundations[foundationIndex] = [...foundation, ...movingCards];
+        setFoundations(newFoundations);
+      }
     }
   };
- 
+
+  const canMoveToFoundation = (card) => {
+    if (!card) return false;
+    const foundation = foundations[foundationIndex];
+    if (foundation.length === 0) {
+      return card.number === NUMBERS.ACE;
+    }
+    // ...rest of the function
+  };
+
   return (
     <div className="solitario">
       <h1>Solitario</h1>

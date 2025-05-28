@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from './Card'; // Importación actualizada
+import Card from './Card';
+import { SUITS_ARRAY, NUMBERS_ARRAY } from '../constants/cardConstants';
 
 const TableauPile = ({ cards, onCardClick }) => {
   return (
@@ -22,10 +23,10 @@ const TableauPile = ({ cards, onCardClick }) => {
 TableauPile.propTypes = {
   cards: PropTypes.arrayOf(
     PropTypes.shape({
-      suit: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-      isVisible: PropTypes.bool.isRequired,
-      id: PropTypes.string.isRequired,
+      suit: PropTypes.oneOf(SUITS_ARRAY),
+      number: PropTypes.oneOf(NUMBERS_ARRAY),
+      isVisible: PropTypes.bool,
+      id: PropTypes.string,
     })
   ).isRequired,
   onCardClick: PropTypes.func.isRequired,
