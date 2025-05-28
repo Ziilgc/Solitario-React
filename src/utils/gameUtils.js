@@ -37,7 +37,7 @@ export const canPlaceOnTableau = (cardToPlace, targetCard) => {
     (!RED_SUITS.includes(cardToPlace.suit) && RED_SUITS.includes(targetCard.suit));
     
   const isDescendingValue = 
-    NUMBERS_ARRAY.indexOf(cardToPlace.number) === NUMBERS_ARRAY.indexOf(targetCard.number) + 1;
+    NUMBERS_ARRAY.indexOf(cardToPlace.number) === NUMBERS_ARRAY.indexOf(targetCard.number)  -1;
     
   return isAlternatingColor && isDescendingValue;
 };
@@ -55,4 +55,3 @@ export const canPlaceOnFoundation = (cardToPlace, foundationPile) => {
 };
 
 //en este archivo nos encargamos de crear el mazo de cartas, barajarlo y verificar si una carta puede ser colocada sobre otra en el tableau o en la fundación.
-
