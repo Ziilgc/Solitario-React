@@ -1,0 +1,85 @@
+.card {
+  width: 100px;
+  height: 140px;
+  border-radius: 8px;
+  background: white;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+  user-select: none;
+  transition: transform 0.2s ease;
+}
+
+.card.back {
+  background: #f8f9fa;
+  background-image: repeating-linear-gradient(
+    45deg,
+    #e9ecef,
+    #e9ecef 10px,
+    #dee2e6 10px,
+    #dee2e6 20px
+  );
+}
+
+.card-content {
+  padding: 8px;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.number {
+  font-family: 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+}
+
+.number.top {
+  top: 8px;
+  left: 8px;
+}
+
+.number.bottom {
+  bottom: 8px;
+  right: 8px;
+  transform: rotate(180deg);
+}
+
+.suit {
+  font-size: 48px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Estilos para palos rojos */
+.suit.♥, .suit.♦,
+.number.♥, .number.♦ {
+  color: #ff5555;
+}
+
+/* Estilos para palos negros */
+.suit.♠, .suit.♣,
+.number.♠, .number.♣ {
+  color: #2c3e50;
+}
+
+/* Efecto hover */
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Estilo para carta seleccionada */
+.card.selected {
+  box-shadow: 0 0 0 2px #4a90e2;
+}
+
+/* Bordes suaves */
+.card {
+  border: 1px solid #e9ecef;
+}

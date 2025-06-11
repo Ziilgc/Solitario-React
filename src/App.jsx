@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NUMBERS } from "./constants/cardConstants";
 import "./App.css";
-import Card from "./components/Card";
+import Card from "./components/Card/Card";
 import TableauPile from "./components/TableauPile";
 import { createDeck, canPlaceOnTableau, canPlaceOnFoundation } from "./utils/gameUtils";
 

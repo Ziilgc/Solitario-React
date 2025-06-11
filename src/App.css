@@ -2,7 +2,10 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
+  background: #2c8f47;
+  min-height: 100vh;
 }
 
 .game-board {
@@ -58,19 +61,22 @@
   background: linear-gradient(45deg, #1a1a1a, #4a4a4a);
 }
 
+/* Espacios para cartas */
 .foundation, .stock, .waste {
   width: 100px;
   height: 140px;
-  border: 2px dashed #666;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
   border-radius: 8px;
 }
 
+/* Contenedor de pilas del tableau */
 .tableau-pile {
   position: relative;
   min-height: 140px;
   width: 100px;
 }
 
+/* Posicionamiento de cartas en el tableau */
 .tableau-card {
   position: absolute;
   left: 0;

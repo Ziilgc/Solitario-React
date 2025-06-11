@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from './Card';
+import Card from './Card/Card';
 import { SUITS_ARRAY, NUMBERS_ARRAY } from '../constants/cardConstants';
 
 const TableauPile = ({ cards, onCardClick }) => {
