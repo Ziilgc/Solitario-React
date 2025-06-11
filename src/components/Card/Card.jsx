@@ -14,6 +14,7 @@ const Card = ({ suit, number, isVisible = true, onClick, selected }) => {
       <div className="card-content">
         <span className={`number top ${suit}`}>{number}</span>
         <span className={`suit ${suit}`}>{suit}</span>
+        <span className={`number middle ${suit}`}>{number}</span>
         <span className={`number bottom ${suit}`}>{number}</span>
       </div>
     </div>

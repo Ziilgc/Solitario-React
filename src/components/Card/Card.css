@@ -5,13 +5,13 @@
   background: white;
   position: relative;
   cursor: pointer;
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   user-select: none;
   transition: transform 0.2s ease;
 }
 
 .card.back {
-   background-image: url('../../assets/card-back.png');
+  background-image: url("../../assets/card-back.png");
   background-size: cover;
   background-position: center;
   border: 1px solid #ddd;
@@ -28,41 +28,58 @@
 }
 
 .number {
-  font-family: 'Arial', sans-serif;
-  font-size: 24px;
+  font-family: "Arial", sans-serif;
+  font-size: 20px;
   font-weight: bold;
   position: absolute;
 }
 
 .number.top {
-  top: 8px;
+  top: 1px;
   left: 8px;
 }
 
 .number.bottom {
-  bottom: 8px;
+  bottom: 1px;
   right: 8px;
   transform: rotate(180deg);
 }
 
+.number.middle {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  color: #ddd;
+}
 .suit {
-  font-size: 48px;
+  font-size: 80px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
+
 /* Estilos para palos rojos */
-.suit.♥, .suit.♦,
-.number.♥, .number.♦ {
+.suit.♥,
+.suit.♦
+{
+  border-color: #ff5555;
+}
+.number.bottom.♥,
+.number.top.♥,
+.number.top.♦,
+.number.bottom.♦ {
   color: #ff5555;
 }
 
 /* Estilos para palos negros */
-.suit.♠, .suit.♣,
-.number.♠, .number.♣ {
-  color: #2c3e50;
+.suit.♠,
+.suit.♣,
+.number.♠,
+.number.♣ {
+  border-color: #2c3e50;
 }
 
 /* Efecto hover */
