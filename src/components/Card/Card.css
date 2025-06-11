@@ -11,14 +11,10 @@
 }
 
 .card.back {
-  background: #f8f9fa;
-  background-image: repeating-linear-gradient(
-    45deg,
-    #e9ecef,
-    #e9ecef 10px,
-    #dee2e6 10px,
-    #dee2e6 20px
-  );
+   background-image: url('../../assets/card-back.png');
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #ddd;
 }
 
 .card-content {
