@@ -103,8 +103,24 @@
 /* Estilo para carta seleccionada */
 .card.selected {
   box-shadow:
-    0 0 0 3px #4a90e2,         /* Borde azul brillante */
-    0 5px 15px rgba(0,0,0,0.2); /* Sombra suave */
-  z-index: 2;
+    0 0 0 4px #4a90e2,
+    0 0 16px 8px #4a90e288,
+    0 5px 15px rgba(0,0,0,0.2);
   transition: box-shadow 0.2s;
+  animation: card-glow 1s infinite alternate;
+}
+
+@keyframes card-glow {
+  from {
+    box-shadow:
+      0 0 0 4px #4a90e2,
+      0 0 8px 4px #4a90e244,
+      0 5px 15px rgba(0,0,0,0.2);
+  }
+  to {
+    box-shadow:
+      0 0 0 8px #4a90e2,
+      0 0 32px 16px #4a90e288,
+      0 5px 15px rgba(0,0,0,0.2);
+  }
 }

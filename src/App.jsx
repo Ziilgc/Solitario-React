@@ -3,7 +3,11 @@ import { NUMBERS } from "./constants/cardConstants";
 import "./App.css";
 import Card from "./components/Card/Card";
 import TableauPile from "./components/TableauPile";
-import { createDeck, canPlaceOnTableau, canPlaceOnFoundation } from "./utils/gameUtils";
+import {
+  createDeck,
+  canPlaceOnTableau,
+  canPlaceOnFoundation,
+} from "./utils/gameUtils";
 
 function App() {
   const [deck, setDeck] = useState([]);
@@ -158,6 +162,10 @@ function App() {
                 <Card
                   {...waste[waste.length - 1]}
                   onClick={() => handleCardClick(waste[waste.length - 1])}
+                  selected={
+                    selectedCard &&
+                    selectedCard.id === waste[waste.length - 1].id
+                  }
                 />
               )}
             </div>
@@ -166,7 +174,13 @@ function App() {
             {foundations.map((foundation, i) => (
               <div key={i} className="foundation">
                 {foundation.length > 0 && (
-                  <Card {...foundation[foundation.length - 1]} />
+                  <Card
+                    {...foundation[foundation.length - 1]}
+                    selected={
+                      selectedCard &&
+                      selectedCard.id === foundation[foundation.length - 1].id
+                    }
+                  />
                 )}
               </div>
             ))}
@@ -174,7 +188,7 @@ function App() {
         </div>
         <div className="tableau">
           {tableau.map((pile, i) => (
-            <TableauPile key={i} cards={pile} onCardClick={handleCardClick} />
+            <TableauPile key={i} cards={pile} onCardClick={handleCardClick} selectedCard={selectedCard} />
           ))}
         </div>
       </div>
