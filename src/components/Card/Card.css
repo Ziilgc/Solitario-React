@@ -8,14 +8,27 @@
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   user-select: none;
   transition: transform 0.2s ease;
+  border: 1px solid #e9ecef;
 }
 
 .card.back {
-  background-image: url("../../assets/card-back.png");
-  background-size: cover;
-  background-position: center;
-  border: 1px solid #ddd;
+  background-color: #c9b9b9;
+  border: 1px solid #b22222;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
 }
+
+.card.back::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(135deg, #222cb2 0 8px, transparent 8px 16px),
+    repeating-linear-gradient(-135deg, #b222b2 0 8px, transparent 8px 16px);
+  opacity: 0.3;
+  
+} 
 
 .card-content {
   padding: 8px;
@@ -89,10 +102,9 @@
 
 /* Estilo para carta seleccionada */
 .card.selected {
-  box-shadow: 0 0 0 2px #4a90e2;
-}
-
-/* Bordes suaves */
-.card {
-  border: 1px solid #e9ecef;
+  box-shadow:
+    0 0 0 3px #4a90e2,         /* Borde azul brillante */
+    0 5px 15px rgba(0,0,0,0.2); /* Sombra suave */
+  z-index: 2;
+  transition: box-shadow 0.2s;
 }

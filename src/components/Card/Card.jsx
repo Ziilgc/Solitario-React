@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { SUITS_ARRAY, NUMBERS_ARRAY } from '../../constants/cardConstants';
 import './Card.css';
-import '../../assets/cardBack.jpg';
+;
 
 const Card = ({ suit, number, isVisible = true, onClick, selected }) => {
   if (!isVisible) {
